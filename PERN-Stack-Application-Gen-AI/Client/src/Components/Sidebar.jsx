@@ -1,5 +1,6 @@
 import React from 'react'
 import { IoClose, IoLogOutOutline } from "react-icons/io5";
+import UserLogo from '../assets/user.png'
 const Sidebar = () => {
     return (
         <div className='h-full flex flex-col bg-sidebar-dark '>
@@ -40,7 +41,7 @@ const Sidebar = () => {
 
                     <div className='flex items-center gap-2 cursor-pointer'>
 
-                        <img className='rounded-full w-8 h-8' src='' alt='' />
+                        <img className='rounded-full w-8 h-8' src={UserLogo} alt='User Logo' />
                         <span className='text-gray-300 '>My Profile</span>
                     </div>
 
