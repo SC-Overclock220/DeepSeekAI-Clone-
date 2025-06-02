@@ -1,8 +1,12 @@
 import React from 'react'
+import Home from './Components/Home'
 
 const App = () => {
   return (
-    <div className='text-3xl text-emerald-600'>App</div>
+    <>
+
+      <Home />
+    </>
   )
 }
 
