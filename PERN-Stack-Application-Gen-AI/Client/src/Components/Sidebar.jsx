@@ -1,7 +1,37 @@
 import React from 'react'
 import { IoClose, IoLogOutOutline } from "react-icons/io5";
 import UserLogo from '../assets/user.png'
+import axios from 'axios';
+import { toast } from 'react-toastify';
+const baseURL = import.meta.env.VITE_BASE_URL;
 const Sidebar = () => {
+
+
+    const handleLogout = async (e) => {
+
+        e.preventDefault();
+
+        try {
+
+
+            const { data } = await axios.post(`${baseURL}/auth/logout`, {}, { withCredentials: true });
+
+            if (data.success)
+                return toast.success(data.message);
+
+
+            return toast.error(data.message);
+
+        } catch (error) {
+
+            console.log(error);
+            return toast.error(error.response.data.message); i
+
+        }
+
+
+
+    }
     return (
         <div className='h-full flex flex-col bg-sidebar-dark '>
 
@@ -45,7 +75,7 @@ const Sidebar = () => {
                         <span className='text-gray-300 '>My Profile</span>
                     </div>
 
-                    <div className='flex items-center gap-2 text-white px-4 py-2 rounded-lg hover:bg-gray-700 duration-200 transition'>
+                    <div className='flex items-center gap-2 text-white px-4 py-2 rounded-lg hover:bg-gray-700 duration-200 transition' onClick={handleLogout}>
 
                         <IoLogOutOutline className='h-6 w-6' />
                         <span>Logout</span>

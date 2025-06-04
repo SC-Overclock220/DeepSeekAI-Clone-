@@ -1,6 +1,6 @@
 import React from 'react'
-import Sidebar from './Sidebar'
-import PromptArea from './PromptArea'
+import Sidebar from '../Components/Sidebar'
+import PromptArea from '../Components/PromptArea'
 
 const Home = () => {
   return (
