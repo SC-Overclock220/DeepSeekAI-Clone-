@@ -1,4 +1,9 @@
 import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
+
+dotenv.config();
+
+console.log(process.env.JWT_SECRET);
 const auth = async (req, res, next) => {
 
 
@@ -6,6 +11,9 @@ const auth = async (req, res, next) => {
     try {
 
         const { token } = req.cookies;
+
+
+        console.log(token);
 
         if (!token)
             return res.status(401).json({ message: "Token Not Found. Unauthorized Access", success: false });

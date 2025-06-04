@@ -27,7 +27,7 @@ const login = async (req, res) => {
 
         const token = jwt.sign({ id: userExists.rows[0].id }, process.env.JWT_SECRET, { expiresIn: "2d" });
 
-        res.cookie("token", token, { maxAge: 2 * 24 * 60 * 60 * 1000, secure: process.env.ENVIRONMENT === 'production', httpOnly: true, sameSite: true });
+        res.cookie("token", token, { maxAge: 2 * 24 * 60 * 60 * 1000, secure: process.env.ENVIRONMENT === 'production', httpOnly: true });
 
 
         return res.status(200).json({ message: `Login Successful`, success: true })
